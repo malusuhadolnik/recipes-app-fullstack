@@ -8,24 +8,26 @@ services:
       - 3000:3000
     platform: linux/x86_64
     working_dir: /frontend
+    depends_on:
+      - backend
   backend:
     container_name: backend
     build: ./backend
     ports:
       - 3001:3001
-    platform: linux/x86_64
+    # platform: linux/x86_64 (para quem usa MAC)
     working_dir: /backend
     # Caso queira que o container esteja atualizado durante o desenvolvimento, sem que você precise ficar fazendo down e up dos containers, descomente as 3 linhas abaixo
     command: dev
     volumes:
       - ./backend/src:/backend/src
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/recypesapp
+      - MONGO_URI=mongodb://localhost:8081/recypesapp
+    depends_on:
+      - db
   db:
-    image: mongo:5.0.7
+    image: mongo:4
     container_name: db
-    volumes:
-      - ./:/
     restart: always
     ports:
       - 8081:27017
