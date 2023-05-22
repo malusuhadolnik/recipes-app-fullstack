@@ -1,0 +1,54 @@
+.headerNav {
+  background-color: #fcdc36;
+  height: 52px;
+}
+
+.profileIcon {
+  float: right;
+  margin: 12px 8px;
+  position: relative;
+}
+
+.headerDiv button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  float: right;
+  margin: 12px 4px;
+  position: relative;
+}
+
+
+.logoIcon {
+  height: 39px;
+  margin: 4px 10px;
+  position: relative;
+  width: 42px;
+}
+
+.titleIcon {
+  height: 17px;
+  margin: 12px 0 0 10px;
+  position: relative;
+  width: 109px;
+}
+
+.pageTitle {
+  margin: 10px 33%;
+  position: relative;
+  text-align: center;
+}
+
+.pageTitle img {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 65%;
+}
+
+.pageTitle h2 {
+  color: #41197f;
+  display: inline-block;
+  font-family: epilogue , sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  text-transform: uppercase;
+}

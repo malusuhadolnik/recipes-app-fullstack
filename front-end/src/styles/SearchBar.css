@@ -1,0 +1,62 @@
+.searchDiv {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  width: 340px;
+}
+
+.searchInput {
+  border-color: rgb(200, 200, 200);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  position: relative;
+  width: 340px;
+  z-index: 1;
+}
+
+.searchOptionsDiv {
+  background-color: #41197f;
+  border-radius: 15px;
+  display: inline-block;
+  height: 130px;
+  padding-top: 30px;
+  position: relative;
+  text-align: center;
+  top: -20px;
+  width: 338px;
+  z-index: 0;
+}
+
+.searchOptionsDiv span {
+  margin: 0 4px;
+}
+
+.searchOptionsDiv label {
+  display: inline-block;
+  margin: 0 8px 20px;
+}
+
+.searchOptionsDiv label span {
+  color: white;
+}
+
+.searchOptionsDiv button {
+  background-color: #fcc436;
+  border-radius: 20px;
+  display: inline-block;
+  height: 40px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  text-align: center;
+  width: 300px;
+}
+
+.searchOptionsDiv button span {
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+

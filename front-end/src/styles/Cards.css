@@ -1,0 +1,45 @@
+/* .cardImage {
+  display: flex;
+  flex-direction: column;
+} */
+
+.card-image {
+  border-radius: 50%;
+  display: flex;
+  width: 110px;
+}
+
+
+.cardName {
+  text-decoration: none;
+}
+
+.theCard {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  border-radius: 16px;
+  margin: 16px 1px;
+  padding: 12px;
+  width: 300px;
+}
+
+.theCard h3 {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.theCard h4 {
+  font-size: 14px;
+}
+
+/* .cardInformation {
+  display: flex;
+} */
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  margin: 5px;
+}

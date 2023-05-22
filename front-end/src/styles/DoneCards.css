@@ -1,0 +1,54 @@
+.doneCard-image {
+  border-radius: 50%;
+  width: 110px;
+}
+
+.cardInf {
+  color: black;
+  display: flex;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+.uniqueCard {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  border-radius: 16px;
+  margin: 16px 14px;
+  padding: 12px;
+  width: 300px;
+}
+
+.uniqueCard span {
+  font-size: 12px;
+}
+
+.uniqueCard p {
+  background-color: white;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+  padding: 2px;
+}
+
+.cardInfos {
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.btnShare {
+  text-align: center;
+}
+
+.uniqueCard h5 {
+  font-size: 16px;
+  font-style: italic;
+}

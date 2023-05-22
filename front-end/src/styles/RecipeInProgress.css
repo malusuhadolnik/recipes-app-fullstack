@@ -1,0 +1,118 @@
+.recipeInProgressContainer {
+  font-family: Epilogue , sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.541);
+  text-transform: uppercase;
+}
+
+.card-image {
+  background-size: contain;
+  border-radius: 50%;
+  width: 150px;
+}
+
+.inProgressCard {
+  border: 2px solid white;
+  border-radius: 16px;
+  display: flex;
+  height: 170px;
+  margin: 20px 8px;
+  padding: 4px;
+}
+
+.inProgressData {
+  flex-grow: 1;
+}
+
+.icon-containers {
+  height: 32px;
+}
+
+.icon-containers img {
+  max-height: 26px;
+}
+
+.recipe-title {
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.recipe-category {
+  font-size: 20px;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.inProgressControls {
+  display: flex;
+  justify-content: center;
+}
+
+.ingredients-checkbox {
+  height: 16px;
+  width: 16px;
+}
+
+/* .ingredients-checkbox:checked {
+  box-shadow: 0 4px 8px 0 rgba(137, 213, 236, 0.589)
+  , 0 6px 20px 0 rgba(137, 213, 236, 0.589);
+} */
+
+label {
+  height: 16px;
+}
+
+.ingredients-label-true {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: line-through solid black;
+}
+
+.ingredients-label-false {
+  text-decoration: none;
+}
+
+.ingredients-list {
+  max-height: 180px;
+  overflow: scroll;
+}
+
+.instructions {
+  border: 2px solid white;
+  border-radius: 16px;
+  font-size: 12px;
+  margin: 0 4px;
+  max-height: 150px;
+  overflow: scroll;
+  padding: 2px;
+  text-align: justify;
+}
+
+.btn-finish-false {
+  background-color: rgb(252, 196, 54);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 800;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.btn-finish-true {
+  border-radius: 5px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.copied-container {
+  text-align: center;
+}

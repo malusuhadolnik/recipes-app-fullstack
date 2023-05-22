@@ -1,0 +1,35 @@
+.allRecipes {
+  padding-bottom: 100px;
+}
+
+.favesContainer {
+  padding-bottom: 100px;
+}
+
+.filters {
+  display: flex;
+  margin-left: 34px;
+  width: 350px;
+}
+
+.doneFiltersAll {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  margin: 2px;
+}
+
+.doneFiltersMeals {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  margin: 2px;
+}
+
+.doneFiltersDrinks {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  margin: 2px;
+}
+
+body {
+  background-color: whitesmoke;
+}
