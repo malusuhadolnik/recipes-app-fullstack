@@ -1,14 +1,23 @@
 const mongoose = require('../database');
 
-const Meals = new mongoose.Schema({
-  idMeal: { type: String },
-  strMeal: { type: String },
-  strCategory: { type: String },
-  strArea: { type: String },
-  strInstructions: { type: String },
-  strMealThumb: { type: String },
+const Drinks = new mongoose.Schema({
+  idDrink: { type: String },
+  strDrink: { type: String },
+  strDrinkAlternate: { type: String },
   strTags: { type: String },
-  strYoutube: { type: String },
+  strVideo: { type: String },
+  strCategory: { type: String },
+  strIBA: { type: String },
+  strAlcoholic: { type: String },
+  strGlass: { type: String },
+  strInstructions: { type: String },
+  strInstructionsES: { type: String },
+  strInstructionsDE: { type: String },
+  strInstructionsFR: { type: String },
+  strInstructionsIT: { type: String },
+  // strInstructionsZH-HANS: { type: String },
+  // strInstructionsZH-HANT: { type: String },
+  strDrinkThumb: { type: String },
   strIngredient1: { type: String },
   strIngredient2: { type: String },
   strIngredient3: { type: String },
@@ -24,11 +33,6 @@ const Meals = new mongoose.Schema({
   strIngredient13: { type: String },
   strIngredient14: { type: String },
   strIngredient15: { type: String },
-  strIngredient16: { type: String },
-  strIngredient17: { type: String },
-  strIngredient18: { type: String },
-  strIngredient19: { type: String },
-  strIngredient20: { type: String },
   strMeasure1: { type: String },
   strMeasure2: { type: String },
   strMeasure3: { type: String },
@@ -44,17 +48,13 @@ const Meals = new mongoose.Schema({
   strMeasure13: { type: String },
   strMeasure14: { type: String },
   strMeasure15: { type: String },
-  strMeasure16: { type: String },
-  strMeasure17: { type: String },
-  strMeasure18: { type: String },
-  strMeasure19: { type: String },
-  strMeasure20: { type: String },
   strSource: { type: String },
   strImageSource: { type: String },
+  strImageAttribution: { type: String },
   strCreativeCommonsConfirmed: { type: String },
   dateModified: { type: String },
 });
 
-const MealsModel = mongoose.model('Meals', Meals);
+const DrinksModel = mongoose.model('Drinks', Drinks);
 
-module.exports = MealsModel;
+module.exports = DrinksModel;
