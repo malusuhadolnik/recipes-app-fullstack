@@ -12,7 +12,7 @@ const getData = async () => {
 };
 
 const getByCategory = async (category) => {
-  const result = await MealsModel.find({ strCategory: { $regex: new RegExp(category, "i") } });
+  const result = await MealsModel.find({ strCategory: { $regex: new RegExp(`^.*${category}.*$`), $options: "i" } });
 
   return result;
 };
