@@ -8,9 +8,9 @@ routes.get('/', mealsController.getData);
 //rota para a lista de categorias
 routes.get('/categories', mealsController.listAllCategories);
 
-//rota para categorias com informação completa.
-routes.get('/categoriesinfo', mealsController.getCategories);
-
 routes.get('/areas', mealsController.listAllAreas);
+
+// rota para pesquisar por ingrediente
+routes.get('/ingredient', mealsController.getRecipeByIngredient);
 
 module.exports = routes;

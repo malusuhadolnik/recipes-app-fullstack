@@ -6,11 +6,6 @@ const getData = async (req, res) => {
   res.status(201).json({ meals: result });
 };
 
-const getCategories = async (_req, res) => {
-  const result = await mealsService.getCategories();
-  res.status(201).json({ categories: result });
-};
-
 const listAllCategories = async (_req, res) => {
   const result = await mealsService.listAllCategories();
   res.status(200).json({ meals: result });
@@ -21,9 +16,16 @@ const listAllAreas = async (_req, res) => {
   res.status(200).json({ meals: result });
 }
 
+const getRecipeByIngredient = async (req, res) => {
+  const { q } = req.query;
+  // console.log(q);
+  const result = await mealsService.getRecipeByIngredient(q);
+  res.status(200).json({ meals: result })
+}
+
 module.exports = {
   getData,
-  getCategories,
   listAllCategories,
   listAllAreas,
+  getRecipeByIngredient,
 };
