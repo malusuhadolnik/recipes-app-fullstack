@@ -1,5 +1,6 @@
 const { getMeals } = require("../APIs/mealApi");
-const MealsModel = require("../Models/MealsModel")
+const MealsModel = require("../Models/MealsModel");
+const MealCategoriesModel = require("../Models/MealCategoriesModel");
 
 const getData = async () => {
     let currentDB = await MealsModel.find({});
@@ -9,6 +10,17 @@ const getData = async () => {
       return data;
     }
     return currentDB;
+};
+
+//deve retornar resultado como no endpoint:https://www.themealdb.com/api/json/v1/1/categories.php
+const getCategories = async () => {
+  let currentDB = await MealCategoriesModel.find({});
+  if(currentDB.length === 0) {
+    const data = await getCategories();
+    await MealCategoriesModel.insertMany(data);
+    return data;
+  }
+  return currentDB;
 };
 
 // deve retornar resultado como no endpoint:https://www.themealdb.com/api/json/v1/1/list.php?c=list
@@ -33,6 +45,7 @@ const listAllAreas = async () => {
 
 module.exports = {
   getData,
+  getCategories,
   listAllCategories,
   listAllAreas,
 }

@@ -6,6 +6,11 @@ const getData = async (req, res) => {
   res.status(201).json({ meals: result });
 };
 
+const getCategories = async (_req, res) => {
+  const result = await mealsService.getCategories();
+  res.status(201).json({ categories: result });
+};
+
 const listAllCategories = async (_req, res) => {
   const result = await mealsService.listAllCategories();
   res.status(200).json({ meals: result });
@@ -18,6 +23,7 @@ const listAllAreas = async (_req, res) => {
 
 module.exports = {
   getData,
+  getCategories,
   listAllCategories,
   listAllAreas,
 };
