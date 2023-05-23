@@ -13,16 +13,14 @@ routes.get('/category', mealsController.getByCategory);
 
 routes.get('/area', mealsController.getByArea);
 
-routes.get('/:id', mealsController.getById);
-
-routes.get('/', mealsController.getData);
-
-//rota para a lista de categorias
 routes.get('/categories', mealsController.listAllCategories);
 
 routes.get('/areas', mealsController.listAllAreas);
 
-// rota para pesquisar por ingrediente
 routes.get('/ingredient', mealsController.getRecipeByIngredient);
+
+routes.get('/:id', mealsController.getById);
+
+routes.get('/', mealsController.getData);
 
 module.exports = routes;

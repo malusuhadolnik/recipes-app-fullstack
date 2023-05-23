@@ -32,7 +32,6 @@ function DoneRecipes() {
   };
 
   useEffect(() => {
-    // const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
     setFiltered(doneRecipes);
   }, []);
 
@@ -45,12 +44,11 @@ function DoneRecipes() {
             className="doneFiltersAll"
             name="all"
             type="button"
-            // data-testid="filter-by-all-btn"
-            onClick={ handleFilter }
+            onClick={handleFilter}
           >
             <img
               data-testid="filter-by-all-btn"
-              src={ All }
+              src={All}
               alt="all"
             />
           </button>
@@ -58,12 +56,11 @@ function DoneRecipes() {
             className="doneFiltersMeals"
             name="meals"
             type="button"
-            // data-testid="filter-by-meal-btn"
-            onClick={ handleFilter }
+            onClick={handleFilter}
           >
             <img
               data-testid="filter-by-meal-btn"
-              src={ foods }
+              src={foods}
               alt="foods"
             />
           </button>
@@ -71,31 +68,30 @@ function DoneRecipes() {
             className="doneFiltersDrinks"
             name="drinks"
             type="button"
-            // data-testid="filter-by-drink-btn"
-            onClick={ handleFilter }
+            onClick={handleFilter}
           >
             <img
               data-testid="filter-by-drink-btn"
-              src={ drinks }
+              src={drinks}
               alt="drinks"
             />
           </button>
         </div>
         <div className="allRecipes">
-          { filtered !== null
-          && filtered.map((recipe, index) => (<DoneCards
-            key={ index }
-            image={ recipe.image }
-            name={ recipe.name }
-            nationality={ recipe.nationality }
-            category={ recipe.category }
-            type={ recipe.type }
-            alcohol={ recipe.alcoholicOrNot }
-            index={ index }
-            doneDate={ recipe.doneDate }
-            tags={ recipe.tags }
-            id={ recipe.id }
-          />))}
+          {filtered !== null
+            && filtered.map((recipe, index) => (<DoneCards
+              key={index}
+              image={recipe.image}
+              name={recipe.name}
+              nationality={recipe.nationality}
+              category={recipe.category}
+              type={recipe.type}
+              alcohol={recipe.alcoholicOrNot}
+              index={index}
+              doneDate={recipe.doneDate}
+              tags={recipe.tags}
+              id={recipe.id}
+            />))}
         </div>
         <Footer />
       </div>

@@ -8,7 +8,6 @@ import FavoriteButton from './FavoriteButton';
 
 function MealInProgress(props) {
   const { recipe, ingredients } = props;
-  // console.log(recipe)
   const { inProgress, wasShared } = useContext(AppContext);
   const [notAble, setNotAble] = useState(true);
   const {
@@ -84,11 +83,10 @@ function MealInProgress(props) {
     <div className="recipeInProgressContainer">
       <div
         className="inProgressCard"
-        // style={ { backgroundImage: `url(${strMealThumb})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' } }
       >
         <img
-          src={ recipe[0].strMealThumb }
-          alt={ recipe[0].strMeal }
+          src={recipe[0].strMealThumb}
+          alt={recipe[0].strMeal}
           data-testid="recipe-photo"
           className="card-image"
         />
@@ -97,29 +95,29 @@ function MealInProgress(props) {
             data-testid="recipe-title"
             className="recipe-title"
           >
-            { recipe[0].strMeal }
+            {recipe[0].strMeal}
           </h3>
           <h4
             data-testid="recipe-category"
             className="recipe-category"
           >
-            { recipe[0].strCategory }
+            {recipe[0].strCategory}
           </h4>
           <div className="inProgressControls">
             <Share
               index="0"
               type="meal"
-              id={ recipe[0].idMeal }
+              id={recipe[0].idMeal}
               testid="share-btn"
             />
             <FavoriteButton
               testid="favorite-btn"
-              recipe={ recipe[0] }
+              recipe={recipe[0]}
               type="meal"
             />
           </div>
           <div className="copied-container">
-            { wasShared && <p>Link copied!</p>}
+            {wasShared && <p>Link copied!</p>}
           </div>
         </div>
       </div>
@@ -127,10 +125,10 @@ function MealInProgress(props) {
         {
           ingredients.map((ingredient, index) => (
             <CheckBoxIngredients
-              recipe={ recipe[0] }
-              key={ index }
-              index={ index }
-              ingredient={ ingredient }
+              recipe={recipe[0]}
+              key={index}
+              index={index}
+              ingredient={ingredient}
             />
           ))
         }
@@ -139,14 +137,14 @@ function MealInProgress(props) {
         data-testid="instructions"
         className="instructions"
       >
-        { recipe[0].strInstructions }
+        {recipe[0].strInstructions}
       </p>
       <button
         type="button"
         data-testid="finish-recipe-btn"
-        disabled={ notAble }
-        onClick={ finishRecipe }
-        className={ `btn-finish-${notAble}` }
+        disabled={notAble}
+        onClick={finishRecipe}
+        className={`btn-finish-${notAble}`}
       >
         Finish
       </button>

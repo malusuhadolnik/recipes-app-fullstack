@@ -30,44 +30,42 @@ function Profile() {
   return (
     <div>
       <Header title="Profile" />
-      {/* { theEmail !== null
-         && <h2 data-testid="profile-email">{ theEmail }</h2>} */}
-      <h2 data-testid="profile-email">{ userEmail}</h2>
+      <h2 data-testid="profile-email">{userEmail}</h2>
       <div className="done-recipes">
         <img
-          src={ checkIcon }
+          src={checkIcon}
           alt="Done Recipes"
         />
         <button
           data-testid="profile-done-btn"
           type="button"
-          onClick={ handleDoneRecipes }
+          onClick={handleDoneRecipes}
         >
           Done Recipes
         </button>
       </div>
       <div className="favorite-recipes">
         <img
-          src={ yellowHeart }
+          src={yellowHeart}
           alt="Done Recipes"
         />
         <button
           data-testid="profile-favorite-btn"
           type="button"
-          onClick={ handleFavoriteRecipes }
+          onClick={handleFavoriteRecipes}
         >
           Favorite Recipes
         </button>
       </div>
       <div className="logout">
         <img
-          src={ logout }
+          src={logout}
           alt="Done Recipes"
         />
         <button
           data-testid="profile-logout-btn"
           type="button"
-          onClick={ handleLogout }
+          onClick={handleLogout}
         >
           Logout
         </button>
