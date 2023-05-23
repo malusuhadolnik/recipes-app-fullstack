@@ -3,6 +3,7 @@ const mongoose = require('../database');
 const Meals = new mongoose.Schema({
   idMeal: { type: String },
   strMeal: { type: String },
+  strDrinkAlternate: { type: String },
   strCategory: { type: String },
   strArea: { type: String },
   strInstructions: { type: String },
