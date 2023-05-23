@@ -28,9 +28,27 @@ const getRandomRecipe = async (_req, res) => {
   res.status(200).json({ drinks: result });
 };
 
+const getByCategory = async (req, res) => {
+  const { q } = req.query;
+
+  const result = await drinksService.getByCategory(q);
+
+  res.status(201).json({ drinks: result });
+};
+
+const getById = async (req, res) => {
+  const { id } = req.params;
+
+  const result = await drinksService.getById(id);
+
+  res.status(201).json({ drinks: [result] });
+};
+
 module.exports = {
   getData,
   getByName,
   getByFirstLetter,
   getRandomRecipe,
+  getByCategory,
+  getById
 };

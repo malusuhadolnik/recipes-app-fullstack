@@ -34,6 +34,17 @@ const getRandomRecipe = async () => {
   const collectionLength = await DrinksModel.countDocuments();
   const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
   const result = await DrinksModel.find({}, { _id: false }).skip(randomPosition).limit(1);
+};
+
+const getByCategory = async (category) => {
+  const result = await DrinksModel.find({ strCategory: { $regex: new RegExp(`^.*${category}.*$`), $options: "i" } });
+
+  return result;
+};
+
+const getById = async (id) => {
+  const result = await DrinksModel.findOne({ idDrink: id });
+
   return result;
 };
 
@@ -42,4 +53,6 @@ module.exports = {
   getByName,
   getByFirstLetter,
   getRandomRecipe,
+  getByCategory,
+  getById
 };

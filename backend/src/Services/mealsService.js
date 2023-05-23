@@ -8,6 +8,7 @@ const getData = async () => {
     await MealsModel.insertMany(data);
     return data;
   }
+
   return currentDB
 };
 
@@ -29,6 +30,18 @@ const getByFirstLetter = async (letter) => {
     strMeal: { $regex: new RegExp(`^${letter}`), $options: "i" },
   }, { _id: false, });
 
+  return currentDB;
+};
+
+const getByCategory = async (category) => {
+  const result = await MealsModel.find({ strCategory: { $regex: new RegExp(`^.*${category}.*$`), $options: "i" } });
+
+  return result;
+};
+
+const getByArea = async (area) => {
+  const result = await MealsModel.find({ strArea: { $regex: new RegExp(`^.*${area}.*$`), $options: "i" } });
+
   return result;
 };
 
@@ -36,6 +49,10 @@ const getRandomRecipe = async () => {
   const collectionLength = await MealsModel.countDocuments();
   const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
   const result = await MealsModel.find({}, { _id: false }).skip(randomPosition).limit(1);
+};
+
+const getById = async (id) => {
+  const result = await MealsModel.findOne({ idMeal: id });
 
   return result;
 };
@@ -45,4 +62,7 @@ module.exports = {
   getByName,
   getByFirstLetter,
   getRandomRecipe,
+  getByCategory,
+  getByArea,
+  getById
 };
