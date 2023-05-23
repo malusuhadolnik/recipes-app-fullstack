@@ -11,6 +11,18 @@ const getData = async () => {
     return currentDB;
 };
 
+// deve retornar resultado como no endpoint:https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
+const listAllCategories = async () => {
+  try {
+    const result = await DrinksModel.find({}, { _id: false, strCategory: true });
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 module.exports = {
   getData,
+  listAllCategories,
 }

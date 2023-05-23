@@ -5,4 +5,6 @@ const routes = Router();
 
 routes.get('/', drinksController.getData);
 
+routes.get('/categories', drinksController.listAllCategories);
+
 module.exports = routes;

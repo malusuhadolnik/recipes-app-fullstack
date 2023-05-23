@@ -16,7 +16,6 @@ const listAllCategories = async () => {
   try {
     const result = await MealsModel.find({}, { _id: false, strCategory: true });
     return result;
-    // return result.map(doc => doc.strCategory);
   } catch (error) {
     console.log(error.message);
   }
