@@ -11,7 +11,13 @@ const listAllCategories = async (_req, res) => {
   res.status(200).json({ meals: result });
 }
 
+const listAllAreas = async (_req, res) => {
+  const result = await mealsService.listAllAreas();
+  res.status(200).json({ meals: result });
+}
+
 module.exports = {
   getData,
   listAllCategories,
+  listAllAreas,
 };

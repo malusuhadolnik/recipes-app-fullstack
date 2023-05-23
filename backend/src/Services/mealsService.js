@@ -21,7 +21,18 @@ const listAllCategories = async () => {
   }
 }
 
+// deve retornar resultado como no endpoint: https://www.themealdb.com/api/json/v1/1/list.php?a=list
+const listAllAreas = async () => {
+  try {
+    const result = await MealsModel.find({}, { _id: false, strArea: true });
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 module.exports = {
   getData,
   listAllCategories,
+  listAllAreas,
 }

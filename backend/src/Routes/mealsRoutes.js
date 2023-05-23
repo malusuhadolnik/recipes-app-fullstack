@@ -7,4 +7,6 @@ routes.get('/', mealsController.getData);
 
 routes.get('/categories', mealsController.listAllCategories);
 
+routes.get('/areas', mealsController.listAllAreas);
+
 module.exports = routes;
