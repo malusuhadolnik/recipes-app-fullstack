@@ -19,15 +19,11 @@ const getByName = async (name) => {
   try {
     if (name) {
       const result = await MealsModel.find({
-        strMeal: { $regex: new RegExp(name, "i") },
-      }, {
-        _id: false,
-      });
+        strMeal: { $regex: new RegExp(`^.*${name}.*$`), $options: "i" },
+      }, { _id: false });
       return result;
     } else {
-      const result = await MealsModel.find({}, {
-        _id: false,
-      });
+      const result = await MealsModel.find({}, { _id: false });
       return result;
     };
   } catch (error) {
@@ -39,7 +35,7 @@ const getByFirstLetter = async (letter) => {
   try {
     const result = await MealsModel.find({
       strMeal: { $regex: new RegExp(`^${letter}`), $options: "i" },
-    }, { strMeal: true });
+    }, { _id: false, });
     return result;
   } catch (error) {
     console.log(error.message)
@@ -50,7 +46,7 @@ const getRandomRecipe = async () => {
   try {
     const collectionLength = await MealsModel.countDocuments();
     const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
-    const result = await MealsModel.findOne({}, {}).skip(randomPosition).limit(1);
+    const result = await MealsModel.find({}, { _id: false }).skip(randomPosition).limit(1);
     return result;
   } catch (error) {
     console.log(error.message)
