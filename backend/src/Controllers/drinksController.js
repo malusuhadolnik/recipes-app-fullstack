@@ -11,7 +11,14 @@ const listAllCategories = async (_req, res) => {
   res.status(200).json({ drinks: result });
 }
 
+const getDrinkByIngredient = async (req, res) => {
+  const { q } = req.query;
+  const result = await drinksService.getRecipeByIngredient(q);
+  res.status(200).json({ drinks: result })
+}
+
 module.exports = {
   getData,
   listAllCategories,
+  getDrinkByIngredient,
 };

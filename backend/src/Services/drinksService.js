@@ -22,7 +22,21 @@ const listAllCategories = async () => {
   }
 }
 
+const getDrinkByIngredient = async (q) => {
+  console.log(q);
+  try {
+    const regex = new RegExp("\\b" + q + "s?\\b", "i");
+    
+    const result = await DrinksModel.find({ strInstructions: { $regex: regex } });
+    
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 module.exports = {
   getData,
   listAllCategories,
+  getDrinkByIngredient,
 }
