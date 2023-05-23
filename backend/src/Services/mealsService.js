@@ -2,55 +2,39 @@ const { getMeals } = require("../APIs/mealApi");
 const MealsModel = require("../Models/MealsModel")
 
 const getData = async () => {
-  try {
-    let currentDB = await MealsModel.find({});
-    if (currentDB.length === 0) {
-      const data = await getMeals();
-      await MealsModel.insertMany(data);
-      return data;
-    }
-    return currentDB;
-  } catch (error) {
-    console.log(error.message)
+  let currentDB = await MealsModel.find({});
+  if (currentDB.length === 0) {
+    const data = await getMeals();
+    await MealsModel.insertMany(data);
+    return data;
   }
+  return currentDB
 };
 
 const getByName = async (name) => {
-  try {
-    if (name) {
-      const result = await MealsModel.find({
-        strMeal: { $regex: new RegExp(`^.*${name}.*$`), $options: "i" },
-      }, { _id: false });
-      return result;
-    } else {
-      const result = await MealsModel.find({}, { _id: false });
-      return result;
-    };
-  } catch (error) {
-    console.log(error.message)
-  }
+  if (name) {
+    const result = await MealsModel.find({
+      strMeal: { $regex: new RegExp(`^.*${name}.*$`), $options: "i" },
+    }, { _id: false });
+    return result;
+  } else {
+    const result = await MealsModel.find({}, { _id: false });
+    return result;
+  };
 };
 
 const getByFirstLetter = async (letter) => {
-  try {
-    const result = await MealsModel.find({
-      strMeal: { $regex: new RegExp(`^${letter}`), $options: "i" },
-    }, { _id: false, });
-    return result;
-  } catch (error) {
-    console.log(error.message)
-  }
+  const result = await MealsModel.find({
+    strMeal: { $regex: new RegExp(`^${letter}`), $options: "i" },
+  }, { _id: false, });
+  return result;
 };
 
 const getRandomRecipe = async () => {
-  try {
-    const collectionLength = await MealsModel.countDocuments();
-    const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
-    const result = await MealsModel.find({}, { _id: false }).skip(randomPosition).limit(1);
-    return result;
-  } catch (error) {
-    console.log(error.message)
-  }
+  const collectionLength = await MealsModel.countDocuments();
+  const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
+  const result = await MealsModel.find({}, { _id: false }).skip(randomPosition).limit(1);
+  return result;
 };
 
 module.exports = {
