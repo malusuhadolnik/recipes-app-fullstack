@@ -115,8 +115,8 @@ function SearchBar() {
       <input
         type="text"
         data-testid="search-input"
-        value={ inputValue }
-        onChange={ handleChange }
+        value={inputValue}
+        onChange={handleChange}
         className="searchInput"
       />
       <div className="searchOptionsDiv">
@@ -126,7 +126,7 @@ function SearchBar() {
             value="ingredient"
             id="ingredient"
             name="teste"
-            onChange={ () => setSearchCat(ing) }
+            onChange={() => setSearchCat(ing)}
             data-testid="ingredient-search-radio"
           />
           <span>Ingredient</span>
@@ -137,7 +137,7 @@ function SearchBar() {
             value="name"
             id="name"
             name="teste"
-            onChange={ () => setSearchCat(nam) }
+            onChange={() => setSearchCat(nam)}
             data-testid="name-search-radio"
           />
           <span>Name</span>
@@ -148,7 +148,7 @@ function SearchBar() {
             value="first-letter"
             id="first-letter"
             name="teste"
-            onChange={ () => setSearchCat(fst) }
+            onChange={() => setSearchCat(fst)}
             data-testid="first-letter-search-radio"
           />
           <span>First Letter</span>
@@ -156,7 +156,7 @@ function SearchBar() {
         <button
           type="button"
           data-testid="exec-search-btn"
-          onClick={ requestSearch }
+          onClick={requestSearch}
         >
           <span>Search</span>
         </button>

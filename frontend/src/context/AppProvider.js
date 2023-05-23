@@ -4,16 +4,17 @@ import AppContext from './AppContext';
 import useFetch from '../hooks/useFetch';
 
 function AppProvider({ children }) {
+  const URL_BASE = 'http://localhost:3001';
   const [user, setUser] = useState({});
   const [isActive, setIsActive] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const [recipesInProgress, setRecipesInProgress] = useState({});
-  const fetchDrinks = useFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
-  const fetchDrinksCategory = useFetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
-  const fetchMeals = useFetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
-  const fetchFoodsCategorys = useFetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list');
+  const fetchDrinks = useFetch(`${URL_BASE}/drinks`);
+  const fetchDrinksCategory = useFetch(`${URL_BASE}/drinks/categories`);
+  const fetchMeals = useFetch(`${URL_BASE}/meals`);
+  const fetchFoodsCategorys = useFetch(`${URL_BASE}/meals/categories`);
   const [faveRecipes, setFaveRecipes] = useState([]);
-  const [wasShared, setWasShared] = useState(false); // usar para construir ternário com msg "Link copied!"
+  const [wasShared, setWasShared] = useState(false);
   const [inProgress, setInProgress] = useState({
     meals: [],
     drinks: [],
@@ -48,6 +49,7 @@ function AppProvider({ children }) {
     setFilteredRecipes,
     currentPage,
     setCurrentPage,
+    URL_BASE,
   }), [
     user,
     isActive,
@@ -71,7 +73,7 @@ function AppProvider({ children }) {
   ]);
 
   return (
-    <AppContext.Provider value={ values }>
+    <AppContext.Provider value={values}>
       {children}
     </AppContext.Provider>
   );
