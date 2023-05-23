@@ -18,8 +18,14 @@ const getByFirstLetter = async (req, res) => {
   res.status(200).json(result);
 };
 
+const getRandomRecipe = async (_req, res) => {
+  const result = await drinksService.getRandomRecipe();
+  res.status(200).json(result);
+};
+
 module.exports = {
   getData,
   getByName,
   getByFirstLetter,
+  getRandomRecipe,
 };

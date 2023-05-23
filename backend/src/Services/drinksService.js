@@ -40,8 +40,20 @@ const getByFirstLetter = async (letter) => {
   }
 };
 
+const getRandomRecipe = async () => {
+  try {
+    const collectionLength = await DrinksModel.countDocuments();
+    const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
+    const result = await DrinksModel.findOne({}, {}).skip(randomPosition).limit(1);
+    return result;
+  } catch (error) {
+    console.log(error.message)
+  }
+};
+
 module.exports = {
   getData,
   getByName,
   getByFirstLetter,
+  getRandomRecipe,
 }
