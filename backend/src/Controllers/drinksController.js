@@ -10,10 +10,16 @@ const getByName = async (req, res) => {
   const { q } = req.query;
   const result = await drinksService.getByName(q);
   res.status(200).json(result);
-}
+};
 
+const getByFirstLetter = async (req, res) => {
+  const { q } = req.query;
+  const result = await drinksService.getByFirstLetter(q);
+  res.status(200).json(result);
+};
 
 module.exports = {
   getData,
   getByName,
+  getByFirstLetter,
 };

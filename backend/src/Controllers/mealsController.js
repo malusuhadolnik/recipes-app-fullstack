@@ -12,7 +12,14 @@ const getByName = async (req, res) => {
   res.status(200).json(result);
 }
 
+const getByFirstLetter = async (req, res) => {
+  const { q } = req.query;
+  const result = await mealsService.getByFirstLetter(q);
+  res.status(200).json(result);
+};
+
 module.exports = {
   getData,
   getByName,
+  getByFirstLetter,
 };

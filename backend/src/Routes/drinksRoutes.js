@@ -7,4 +7,6 @@ routes.get('/', drinksController.getData);
 
 routes.get('/name', drinksController.getByName);
 
+routes.get('/letter', drinksController.getByFirstLetter);;
+
 module.exports = routes;

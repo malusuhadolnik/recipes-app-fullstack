@@ -29,7 +29,19 @@ const getByName = async (name) => {
   }
 };
 
+const getByFirstLetter = async (letter) => {
+  try {
+    const result = await DrinksModel.find({
+      strDrink: { $regex: new RegExp(`^${letter}`), $options: "i" },
+    }, { strDrink: true });
+    return result;
+  } catch (error) {
+    console.log(error.message)
+  }
+};
+
 module.exports = {
   getData,
   getByName,
+  getByFirstLetter,
 }
