@@ -1,8 +1,8 @@
 const express = require('express');
 require('dotenv').config()
 const cors = require('cors');
-// const database = require('./database');
 const routes = require('./Routes');
+const errorHandler = require('./middlewares/errorHandler');
 
 const PORT = process.env.PORT || 3001;
 
@@ -17,5 +17,7 @@ app.use(express.json());
 app.use('/meals', routes.mealsRoute);
 
 app.use('/drinks', routes.drinksRoute);
+
+app.use(errorHandler);
 
 app.listen(PORT)

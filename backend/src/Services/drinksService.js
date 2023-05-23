@@ -16,6 +16,7 @@ const getByName = async (name) => {
     const result = await DrinksModel.find({
       strDrink: { $regex: new RegExp(`^.*${name}.*$`), $options: "i" },
     }, { _id: false });
+
     return result;
   } else {
     const result = await DrinksModel.find({}, { _id: false })
@@ -27,6 +28,7 @@ const getByFirstLetter = async (letter) => {
   const result = await DrinksModel.find({
     strDrink: { $regex: new RegExp(`^${letter}`), $options: "i" },
   }, { _id: false });
+
   return result;
 };
 
@@ -34,16 +36,18 @@ const getRandomRecipe = async () => {
   const collectionLength = await DrinksModel.countDocuments();
   const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
   const result = await DrinksModel.find({}, { _id: false }).skip(randomPosition).limit(1);
+
+  return result;
 };
 
 const getByCategory = async (category) => {
-  const result = await DrinksModel.find({ strCategory: { $regex: new RegExp(`^.*${category}.*$`), $options: "i" } });
+  const result = await DrinksModel.find({ strCategory: { $regex: new RegExp(`^.*${category}.*$`), $options: "i" } }, { _id: false });
 
   return result;
 };
 
 const getById = async (id) => {
-  const result = await DrinksModel.findOne({ idDrink: id });
+  const result = await DrinksModel.findOne({ idDrink: id }, { _id: false });
 
   return result;
 };

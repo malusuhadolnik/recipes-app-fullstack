@@ -1,55 +1,83 @@
 const { mealsService } = require("../Services")
 
-const getData = async (req, res) => {
-  const result = await mealsService.getData();
+const getData = async (_req, res, next) => {
+  try {
+    const result = await mealsService.getData();
 
-  res.status(201).json({ meals: result });
+    res.status(201).json({ meals: result });
+  } catch (error) {
+    next(error);
+  }
 };
 
-const getByName = async (req, res) => {
-  const { q } = req.query;
+const getByName = async (req, res, next) => {
+  try {
+    const { q } = req.query;
 
-  const result = await mealsService.getByName(q);
+    const result = await mealsService.getByName(q);
 
-  res.status(200).json({ meals: result });
+    res.status(200).json({ meals: result });
+  } catch (error) {
+    next(error)
+  }
 }
 
-const getByFirstLetter = async (req, res) => {
-  const { q } = req.query;
+const getByFirstLetter = async (req, res, next) => {
+  try {
+    const { q } = req.query;
 
-  const result = await mealsService.getByFirstLetter(q);
+    const result = await mealsService.getByFirstLetter(q);
 
-  res.status(200).json({ meals: result });
+    res.status(200).json({ meals: result });
+  } catch (error) {
+    next(error);
+  }
 };
 
-const getRandomRecipe = async (_req, res) => {
-  const result = await mealsService.getRandomRecipe();
+const getRandomRecipe = async (_req, res, next) => {
+  try {
+    const result = await mealsService.getRandomRecipe();
 
-  res.status(200).json({ meals: result });
+    res.status(200).json({ meals: result });
+  } catch (error) {
+    next(error);
+  }
 };
 
-const getByCategory = async (req, res) => {
-  const { q } = req.query;
+const getByCategory = async (req, res, next) => {
+  try {
+    const { q } = req.query;
 
-  const result = await mealsService.getByCategory(q);
+    const result = await mealsService.getByCategory(q);
 
-  res.status(201).json({ meals: result });
+    res.status(201).json({ meals: result });
+  } catch (error) {
+    next(error);
+  }
 };
 
 const getByArea = async (req, res) => {
-  const { q } = req.query;
+  try {
+    const { q } = req.query;
 
-  const result = await mealsService.getByArea(q);
+    const result = await mealsService.getByArea(q);
 
-  res.status(201).json({ meals: result });
+    res.status(201).json({ meals: result });
+  } catch (error) {
+    next(error);
+  }
 };
 
 const getById = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  const result = await mealsService.getById(id);
+    const result = await mealsService.getById(id);
 
-  res.status(201).json({ meals: [result] });
+    res.status(201).json({ meals: [result] });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = {
