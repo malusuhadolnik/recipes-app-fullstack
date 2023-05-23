@@ -80,8 +80,41 @@ const getById = async (req, res) => {
   }
 };
 
+const listAllCategories = async (_req, res) => {
+  try {
+    const result = await mealsService.listAllCategories();
+    
+    res.status(200).json({ meals: result });
+  } catch(error) {
+     next(error);
+  }
+};
+
+const listAllAreas = async (_req, res) => {
+  try {
+    const result = await mealsService.listAllAreas();
+    
+    res.status(200).json({ meals: result });
+  } catch(error) {
+     next(error);
+  }
+};
+
+const getRecipeByIngredient = async (req, res) => {
+  try {
+    const { q } = req.query;
+    const result = await mealsService.getRecipeByIngredient(q);
+    res.status(200).json({ meals: result })
+  } catch(error) {
+     next(error);
+  }
+}
+
 module.exports = {
   getData,
+  listAllCategories,
+  listAllAreas,
+  getRecipeByIngredient,
   getByName,
   getByFirstLetter,
   getRandomRecipe,
