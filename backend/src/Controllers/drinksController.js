@@ -14,7 +14,16 @@ const getByCategory = async (req, res) => {
   res.status(201).json({ drinks: result });
 };
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+
+  const result = await drinksService.getById(id);
+
+  res.status(201).json({ drinks: [result] });
+};
+
 module.exports = {
   getData,
-  getByCategory
+  getByCategory,
+  getById
 };

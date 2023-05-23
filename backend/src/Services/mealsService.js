@@ -17,7 +17,21 @@ const getByCategory = async (category) => {
   return result;
 };
 
+const getByArea = async (area) => {
+  const result = await MealsModel.find({ strArea: { $regex: new RegExp(`^.*${area}.*$`), $options: "i" } });
+
+  return result;
+};
+
+const getById = async (id) => {
+  const result = await MealsModel.findOne({ idMeal: id });
+
+  return result;
+};
+
 module.exports = {
   getData,
   getByCategory,
+  getByArea,
+  getById
 }

@@ -17,7 +17,14 @@ const getByCategory = async (category) => {
   return result;
 };
 
+const getById = async (id) => {
+  const result = await DrinksModel.findOne({ idDrink: id });
+
+  return result;
+};
+
 module.exports = {
   getData,
   getByCategory,
+  getById
 }
