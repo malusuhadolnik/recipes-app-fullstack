@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from 'react';
 import React, { useEffect, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -12,12 +11,9 @@ import AppContext from '../context/AppContext';
 function FavoriteRecipes() {
   const { faveRecipes, setFaveRecipes } = useContext(AppContext);
   const retrieveFaveRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-  // console.log(retrieveFaveRecipes);
 
   const handleFilter = ({ target }) => {
     const chooseFilter = target.closest('button').name;
-    // const chooseFilter = target.name;
-    // console.log(chooseFilter);
 
     if (chooseFilter === 'all') {
       setFaveRecipes(retrieveFaveRecipes);
@@ -43,60 +39,56 @@ function FavoriteRecipes() {
       <div className="filters">
         <button
           className="doneFiltersAll"
-          // data-testid="filter-by-all-btn"
           type="button"
           name="all"
-          onClick={ handleFilter }
+          onClick={handleFilter}
         >
           <img
             data-testid="filter-by-all-btn"
-            src={ All }
+            src={All}
             alt="all"
           />
           {/* All */}
         </button>
         <button
           className="doneFiltersMeals"
-          // data-testid="filter-by-meal-btn"
           type="button"
           name="meals"
-          onClick={ handleFilter }
+          onClick={handleFilter}
         >
           <img
             data-testid="filter-by-meal-btn"
-            src={ foods }
+            src={foods}
             alt="foods"
           />
           {/* Meals */}
         </button>
         <button
           className="doneFiltersDrinks"
-          // data-testid="filter-by-drink-btn"
           type="button"
           name="drinks"
-          onClick={ handleFilter }
+          onClick={handleFilter}
         >
           <img
             data-testid="filter-by-drink-btn"
-            src={ drinks }
+            src={drinks}
             alt="drinks"
           />
-          {/* Drinks */}
         </button>
       </div>
       <br />
       <div className="favesContainer">
-        { faveRecipes !== null
+        {faveRecipes !== null
           && faveRecipes.map((recipe, index) => (<Cards
-            key={ index }
-            image={ recipe.image }
-            name={ recipe.name }
-            nationality={ recipe.nationality }
-            category={ recipe.category }
-            type={ recipe.type }
-            alcohol={ recipe.alcoholicOrNot }
-            index={ index }
-            id={ recipe.id }
+            key={index}
+            image={recipe.image}
+            name={recipe.name}
+            nationality={recipe.nationality}
+            category={recipe.category}
+            type={recipe.type}
+            alcohol={recipe.alcoholicOrNot}
+            index={index}
+            id={recipe.id}
           />))}
       </div>
       <Footer />

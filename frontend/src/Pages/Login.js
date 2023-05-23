@@ -29,8 +29,6 @@ function Login() {
     } else {
       setValid(false);
     }
-
-    // (emailValidation && password.length >= minLength) ? setValid(true) : setValid(false);
   };
 
   const handleChange = ({ target }) => {
@@ -39,9 +37,6 @@ function Login() {
       case 'email':
         setEmail(value);
         break;
-      // case 'password':
-      //   setPassword(value);
-      //   break;
       default:
         setPassword(value);
         break;

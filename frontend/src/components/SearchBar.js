@@ -6,7 +6,7 @@ import AppContext from '../context/AppContext';
 function SearchBar() {
   const [searchCat, setSearchCat] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const { setFilteredRecipes, currentPage } = useContext(AppContext);
+  const { setFilteredRecipes, currentPage, URL_BASE } = useContext(AppContext);
   const ing = 'ingredient';
   const nam = 'name';
   const fst = 'first-letter';
@@ -36,64 +36,40 @@ function SearchBar() {
 
   const mealSearch = async () => {
     if (searchCat === ing) {
-      const filterByIngredient = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputValue}`;
+      const filterByIngredient = `${URL_BASE}/meals/ingredient?q=${inputValue}`;
       const resFetch = await filteredFetch(filterByIngredient, 'meals');
-      // const objState = {
-      //   meals: resFetch.meals,
-      //   drinks: [],
-      // };
       setFilteredRecipes(resFetch);
     } else if (searchCat === nam) {
-      const filterByName = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
+      const filterByName = `${URL_BASE}/meals/name?q=${inputValue}`;
       const resFetch = await filteredFetch(filterByName, 'meals');
-      // const objState = {
-      //   meals: resFetch.meals,
-      //   drinks: [],
-      // };
       setFilteredRecipes(resFetch);
     } else {
       if (inputValue.length > 1) {
         global.alert('Your search must have only 1 (one) character');
         return;
       }
-      const filterByFirstLetter = `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputValue}`;
+      const filterByFirstLetter = `${URL_BASE}/meals/letter?q=${inputValue}`;
       const resFetch = await filteredFetch(filterByFirstLetter, 'meals');
-      // const objState = {
-      //   meals: resFetch.meals,
-      //   drinks: [],
-      // };
       setFilteredRecipes(resFetch);
     }
   };
 
   const drinkSearch = async () => {
     if (searchCat === ing) {
-      const filterByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${inputValue}`;
+      const filterByIngredient = `${URL_BASE}/drinks/ingredient?q=${inputValue}`;
       const resFetch = await filteredFetch(filterByIngredient, 'drinks');
-      // const objState = {
-      //   drinks: resFetch.drinks,
-      //   meals: [],
-      // };
       setFilteredRecipes(resFetch);
     } else if (searchCat === nam) {
-      const filterByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValue}`;
+      const filterByName = `${URL_BASE}/drinks/name?q=${inputValue}`;
       const resFetch = await filteredFetch(filterByName, 'drinks');
-      // const objState = {
-      //   drinks: resFetch.drinks,
-      //   meals: [],
-      // };
       setFilteredRecipes(resFetch);
     } else {
       if (inputValue.length > 1) {
         global.alert('Your search must have only 1 (one) character');
         return;
       }
-      const filterByFirstLetter = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${inputValue}`;
+      const filterByFirstLetter = `${URL_BASE}/drinks/letter?q=${inputValue}`;
       const resFetch = await filteredFetch(filterByFirstLetter, 'drinks');
-      // const objState = {
-      //   drinks: resFetch.drinks,
-      //   meals: [],
-      // };
       setFilteredRecipes(resFetch);
     }
   };

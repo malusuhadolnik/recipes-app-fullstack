@@ -68,22 +68,22 @@ const getById = async (req, res, next) => {
   }
 };
 
-const listAllCategories = async (_req, res) => {
+const listAllCategories = async (_req, res, next) => {
   try {
     const result = await drinksService.listAllCategories();
-    
+
     res.status(200).json({ drinks: result });
   } catch (error) {
     next(error);
   }
 };
 
-const getDrinkByIngredient = async (req, res) => {
+const getDrinkByIngredient = async (req, res, next) => {
   try {
     const { q } = req.query;
-    const result = await drinksService.getRecipeByIngredient(q);
+    const result = await drinksService.getDrinkByIngredient(q);
     res.status(200).json({ drinks: result })
-      
+
   } catch (error) {
     next(error);
   }

@@ -29,19 +29,16 @@ function Share(props) {
 
   return (
     <button
-      // data-testid={ testid }
       type="button"
-      name={ id }
-      value={ type }
-      // src="src/images/shareIcon.svg"
-      onClick={ handleShare }
+      name={id}
+      value={type}
+      onClick={handleShare}
     >
       <img
-        data-testid={ testid }
-        src={ shareIcon }
+        data-testid={testid}
+        src={shareIcon}
         alt="share"
       />
-      {/* Share */}
     </button>
   );
 }
