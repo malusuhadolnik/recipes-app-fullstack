@@ -6,6 +6,28 @@ const getData = async (req, res) => {
   res.status(201).json({ meals: result });
 };
 
+const getByName = async (req, res) => {
+  const { q } = req.query;
+
+  const result = await mealsService.getByName(q);
+
+  res.status(200).json({ meals: result });
+}
+
+const getByFirstLetter = async (req, res) => {
+  const { q } = req.query;
+
+  const result = await mealsService.getByFirstLetter(q);
+
+  res.status(200).json({ meals: result });
+};
+
+const getRandomRecipe = async (_req, res) => {
+  const result = await mealsService.getRandomRecipe();
+
+  res.status(200).json({ meals: result });
+};
+
 const getByCategory = async (req, res) => {
   const { q } = req.query;
 
@@ -32,6 +54,9 @@ const getById = async (req, res) => {
 
 module.exports = {
   getData,
+  getByName,
+  getByFirstLetter,
+  getRandomRecipe,
   getByCategory,
   getByArea,
   getById
