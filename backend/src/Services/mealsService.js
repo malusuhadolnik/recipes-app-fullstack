@@ -19,14 +19,16 @@ const getByName = async (name) => {
     return result;
   } else {
     const result = await MealsModel.find({}, { _id: false });
+
     return result;
-  };
+  }
 };
 
 const getByFirstLetter = async (letter) => {
   const result = await MealsModel.find({
     strMeal: { $regex: new RegExp(`^${letter}`), $options: "i" },
   }, { _id: false, });
+
   return result;
 };
 
@@ -34,6 +36,7 @@ const getRandomRecipe = async () => {
   const collectionLength = await MealsModel.countDocuments();
   const randomPosition = Math.floor(Math.random() * (collectionLength - 1));
   const result = await MealsModel.find({}, { _id: false }).skip(randomPosition).limit(1);
+
   return result;
 };
 
