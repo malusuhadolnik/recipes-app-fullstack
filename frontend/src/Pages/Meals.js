@@ -42,7 +42,7 @@ function Meals() {
       <Header title="Meals" />
       <nav className="navCategorys">
         {categorysFoods
-          && categorysFoods.map(({ strCategory }, index) => {
+          && categorysFoods.map((strCategory, index) => {
             const five = 5;
             if (index < five) {
               return (
