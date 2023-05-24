@@ -81,7 +81,7 @@ const listAllCategories = async (_req, res) => {
 const getDrinkByIngredient = async (req, res) => {
   try {
     const { q } = req.query;
-    const result = await drinksService.getRecipeByIngredient(q);
+    const result = await drinksService.getDrinkByIngredient(q);
     res.status(200).json({ drinks: result })
       
   } catch (error) {
