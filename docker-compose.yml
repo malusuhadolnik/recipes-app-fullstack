@@ -23,8 +23,8 @@ services:
     command: dev
     volumes:
       - ./backend/src:/backend/src
-    environment:
-      - MONGO_URI=mongodb://db:27017/recypesapp
+    # environment:
+    #   - MONGO_URI=mongodb://db:27017/recypesapp
     depends_on:
       - db
   db:
