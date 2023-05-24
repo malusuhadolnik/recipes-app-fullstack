@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import useFetch from '../hooks/useFetch';
 import Header from '../components/Header';
-
 import '../styles/Drinks.css';
 import Rectangle from '../images/Rectangle.svg';
+import imageMap from '../utils/imageDrinksMap';
 
 function Drinks() {
   const {
@@ -38,7 +38,7 @@ function Drinks() {
       <Header title="Drinks" />
       <nav className="containerCardRecipesDrinks">
         {categorysDrinks
-          && categorysDrinks.map(({ strCategory }, index) => {
+          && categorysDrinks.map((strCategory, index) => {
             const five = 5;
             if (index < five) {
               return (
@@ -55,8 +55,7 @@ function Drinks() {
                     setSelectedFilterCategory([target.closest('button').name]);
                   } }
                 >
-                  <img src={ Rectangle } alt={ strCategory } />
-                  {/* {strCategory} */}
+                  <img src={ imageMap[strCategory] } alt={ strCategory } />
                 </button>
               );
             }

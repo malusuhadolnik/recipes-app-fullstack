@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import AppContext from '../context/AppContext';
 import '../styles/Meals.css';
 import Rectangle from '../images/Rectangle.svg';
+import imageMap from '../utils/imageMealsMap';
 
 function Meals() {
   const {
@@ -59,7 +60,11 @@ function Meals() {
                     setSelectedFilterCategory([target.closest('button').name]);
                   } }
                 >
-                  <img key={ `image ${index}` } src={ Rectangle } alt={ strCategory } />
+                  <img
+                    key={ `image ${index}` }
+                    src={ imageMap[strCategory] }
+                    alt={ strCategory }
+                  />
                 </button>
               );
             } return undefined;

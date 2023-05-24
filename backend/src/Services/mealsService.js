@@ -60,10 +60,10 @@ const getById = async (id) => {
   return result;
 };
 
-// deve retornar resultado como no endpoint:https://www.themealdb.com/api/json/v1/1/list.php?c=list
 const listAllCategories = async () => {
   try {
     const result = await MealsModel.find({}, { _id: false, strCategory: true }).distinct('strCategory');
+    
     return result;
   } catch (error) {
     console.log(error.message);
