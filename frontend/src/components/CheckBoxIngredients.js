@@ -27,9 +27,6 @@ function CheckBoxIngredients(props) {
       setDone(result);
       setInProgress(savedProgress);
     }
-    // setTimeout(() => {
-    //   setIsLoading(false);
-    // }, '');
     setIsLoading(false);
   };
 
@@ -40,18 +37,23 @@ function CheckBoxIngredients(props) {
   const removeItemMeal = async (id) => {
     await setInProgress({
       ...inProgress,
-      meals: { ...inProgress.meals,
+      meals: {
+        ...inProgress.meals,
         [id]: inProgress.meals[id].filter((element) => (
           element !== ingredient
-        )) },
+        ))
+      },
     });
     const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const newStorage = {
       drinks: storage.drinks,
-      meals: { ...storage.meals,
+      meals: {
+        ...storage.meals,
         [id]: storage.meals[id].filter((element) => (
           element !== ingredient
-        )) } };
+        ))
+      }
+    };
     localStorage.setItem('inProgressRecipes', JSON.stringify(newStorage));
   };
 
@@ -72,18 +74,23 @@ function CheckBoxIngredients(props) {
   const removeItemDrink = async (id) => {
     await setInProgress({
       ...inProgress,
-      drinks: { ...inProgress.drinks,
+      drinks: {
+        ...inProgress.drinks,
         [id]: inProgress.drinks[id].filter((element) => (
           element !== ingredient
-        )) },
+        ))
+      },
     });
     const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const newStorage = {
       meals: storage.meals,
-      drinks: { ...storage.drinks,
+      drinks: {
+        ...storage.drinks,
         [id]: storage.drinks[id].filter((element) => (
           element !== ingredient
-        )) } };
+        ))
+      }
+    };
     localStorage.setItem('inProgressRecipes', JSON.stringify(newStorage));
   };
 
@@ -129,28 +136,28 @@ function CheckBoxIngredients(props) {
   return (
     <div>
       <label
-        htmlFor={ `check-${ingredient}` }
-        key={ index }
-        className={ `ingredients-label-${done}` }
-        data-testid={ `${index}-ingredient-step` }
+        htmlFor={`check-${ingredient}`}
+        key={index}
+        className={`ingredients-label-${done}`}
+        data-testid={`${index}-ingredient-step`}
       >
         {
           isLoading ? <p>loading</p> : (
             <input
-              id={ `check-${ingredient}` }
+              id={`check-${ingredient}`}
               type="checkbox"
               className="ingredients-checkbox"
-              onChange={ handleChange }
-              checked={ done }
+              onChange={handleChange}
+              checked={done}
               data-testid="ingredient-checkbox"
             />
           )
         }
-        { ingredient }
+        {ingredient}
       </label>
     </div>
   );
-}
+};
 
 CheckBoxIngredients.propTypes = {
   ingredient: PropTypes.arrayOf(PropTypes.string),

@@ -47,15 +47,15 @@ function RecipesDetails({ history }) {
     const drinksOrMeals = async () => {
       try {
         if (history.location.pathname.includes('drink')) {
-          const responseMeals = await genericFetch('https://www.themealdb.com/api/json/v1/1/search.php?s=', 'drink');
+          const responseMeals = await genericFetch(`${dataContext.URL_BASE}/meals`, 'drink');
 
           return setRecomended(responseMeals);
         }
-        const responseDrinks = await genericFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=', 'meal');
+        const responseDrinks = await genericFetch(`${dataContext.URL_BASE}/drinks`, 'meal');
 
         return setRecomended(responseDrinks);
       } catch (error) {
-        // console.log(error);
+        console.log(error);
       }
     };
     drinksOrMeals();
@@ -68,7 +68,7 @@ function RecipesDetails({ history }) {
   useEffect(() => {
     async function fetchDrinksOrFoods() {
       if (history.location.pathname.includes('drink')) {
-        const responseDrink = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${urlInclude}`);
+        const responseDrink = await fetch(`${dataContext.URL_BASE}/drinks/${urlInclude}`);
         const jsonDrink = await responseDrink.json();
         const filterMAndI = filterMeasuresAndIngredients(jsonDrink, 'drink');
 
@@ -79,12 +79,10 @@ function RecipesDetails({ history }) {
 
         obj.ingredients = ingredients;
         obj.measures = measures;
-        // obj.category = `${jsonDrink.drinks[0].strAlcoholic}
-        // ${jsonDrink.drinks[0].strCategory}`;
 
         return setSelectedCategory(obj);
       }
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${urlInclude}`);
+      const response = await fetch(`${dataContext.URL_BASE}/meals/${urlInclude}`);
       const jsonMeals = await response.json();
       const filterMAndI = filterMeasuresAndIngredients(jsonMeals, 'meal');
       // console.log(jsonMeals);
@@ -110,19 +108,19 @@ function RecipesDetails({ history }) {
     <div className="containerRecipeDetails">
       <Header title="" />
       <CardDetails
-        selectedCategory={ selectedCategory }
-        history={ history }
+        selectedCategory={selectedCategory}
+        history={history}
       />
 
       <List
-        selectedCategory={ selectedCategory }
-        history={ history }
+        selectedCategory={selectedCategory}
+        history={history}
       />
 
       <RecomendedCard
-        recomended={ recomended }
-        selectedCategory={ selectedCategory }
-        history={ history }
+        recomended={recomended}
+        selectedCategory={selectedCategory}
+        history={history}
       />
       <div>
         {!isLoading && (
@@ -130,19 +128,19 @@ function RecipesDetails({ history }) {
             type="button"
             className="btnStartRecipe"
             data-testid="start-recipe-btn"
-            style={ { position: 'fixed', bottom: '0' } }
-            onClick={ async () => {
+            style={{ position: 'fixed', bottom: '0' }}
+            onClick={async () => {
               if (history.location.pathname.includes('meal')) {
                 await dataContext.setRecipesInProgress([selectedCategory]);
                 return history.push(`/meals/${selectedCategory.id}/in-progress`);
               }
               await dataContext.setRecipesInProgress([selectedCategory]);
               history.push(`/drinks/${selectedCategory.id}/in-progress`);
-            } }
+            }}
           >
-            { !recipeInProgress ? 'Start Recipe' : 'Continue Recipe'}
+            {!recipeInProgress ? 'Start Recipe' : 'Continue Recipe'}
           </button>
-        ) }
+        )}
       </div>
     </div>
   );
