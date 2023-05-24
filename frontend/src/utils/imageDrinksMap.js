@@ -9,7 +9,7 @@ const imageMap = {
   'Coffee / Tea': cocoa,
   'Ordinary Drink': ordinary,
   'Punch / Party Drink': other,
-  'Soft Drink': shake,
+  Shot: shake,
 };
 
 export default imageMap;

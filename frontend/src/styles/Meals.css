@@ -56,23 +56,3 @@ a:hover {
 .all {
   background: transparent url('../images/icone-prato.svg') no-repeat center;
 }
-
-.Beef {
-  background: transparent url('../images/beefIcon.svg') no-repeat center;
-}
-
-.Breakfast {
-  background: transparent url('../images/BreakfastIcon.svg') no-repeat center;
-}
-
-.Chicken {
-  background: transparent url('../images/chikenIcon.svg') no-repeat center;
-}
-
-.Dessert {
-  background: transparent url('../images/DessertIcon.svg') no-repeat center;
-}
-
-.Goat {
-  background: transparent url('../images/GoatIcon.svg') no-repeat center;
-}

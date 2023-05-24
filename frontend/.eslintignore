@@ -1,3 +1,5 @@
 src/serviceWorker.js 
 cypress.config.js
 coverage/*
+node_modules
+build

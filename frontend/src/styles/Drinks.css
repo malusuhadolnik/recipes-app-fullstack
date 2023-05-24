@@ -7,26 +7,6 @@
   scale: 1.1;
 }
 
-.button0 {
-  background: transparent url('../images/ordinaryDrinkIcon.svg') no-repeat center;
-}
-
-.button1 {
-  background: transparent url('../images/cocktailIconDrink.svg') no-repeat center;
-}
-
-.button2 {
-  background: transparent url('../images/shakeDrinkIcon.svg') no-repeat center;
-}
-
-.button3 {
-  background: transparent url('../images/unknownDrinkIcon.svg') no-repeat center;
-}
-
-.button4 {
-  background: transparent url('../images/cocoaDrinkIcon.svg') no-repeat center;
-}
-
 .allDrinksRecipes {
   background: transparent url('../images/AllDrinksRecipes.svg') no-repeat center;
   background-color: transparent;
