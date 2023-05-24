@@ -85,8 +85,8 @@ function MealInProgress(props) {
         className="inProgressCard"
       >
         <img
-          src={recipe[0].strMealThumb}
-          alt={recipe[0].strMeal}
+          src={ recipe[0].strMealThumb }
+          alt={ recipe[0].strMeal }
           data-testid="recipe-photo"
           className="card-image"
         />
@@ -107,12 +107,12 @@ function MealInProgress(props) {
             <Share
               index="0"
               type="meal"
-              id={recipe[0].idMeal}
+              id={ recipe[0].idMeal }
               testid="share-btn"
             />
             <FavoriteButton
               testid="favorite-btn"
-              recipe={recipe[0]}
+              recipe={ recipe[0] }
               type="meal"
             />
           </div>
@@ -125,10 +125,10 @@ function MealInProgress(props) {
         {
           ingredients.map((ingredient, index) => (
             <CheckBoxIngredients
-              recipe={recipe[0]}
-              key={index}
-              index={index}
-              ingredient={ingredient}
+              recipe={ recipe[0] }
+              key={ index }
+              index={ index }
+              ingredient={ ingredient }
             />
           ))
         }
@@ -142,9 +142,9 @@ function MealInProgress(props) {
       <button
         type="button"
         data-testid="finish-recipe-btn"
-        disabled={notAble}
-        onClick={finishRecipe}
-        className={`btn-finish-${notAble}`}
+        disabled={ notAble }
+        onClick={ finishRecipe }
+        className={ `btn-finish-${notAble}` }
       >
         Finish
       </button>

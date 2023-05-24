@@ -44,11 +44,11 @@ function DoneRecipes() {
             className="doneFiltersAll"
             name="all"
             type="button"
-            onClick={handleFilter}
+            onClick={ handleFilter }
           >
             <img
               data-testid="filter-by-all-btn"
-              src={All}
+              src={ All }
               alt="all"
             />
           </button>
@@ -56,11 +56,11 @@ function DoneRecipes() {
             className="doneFiltersMeals"
             name="meals"
             type="button"
-            onClick={handleFilter}
+            onClick={ handleFilter }
           >
             <img
               data-testid="filter-by-meal-btn"
-              src={foods}
+              src={ foods }
               alt="foods"
             />
           </button>
@@ -68,11 +68,11 @@ function DoneRecipes() {
             className="doneFiltersDrinks"
             name="drinks"
             type="button"
-            onClick={handleFilter}
+            onClick={ handleFilter }
           >
             <img
               data-testid="filter-by-drink-btn"
-              src={drinks}
+              src={ drinks }
               alt="drinks"
             />
           </button>
@@ -80,17 +80,17 @@ function DoneRecipes() {
         <div className="allRecipes">
           {filtered !== null
             && filtered.map((recipe, index) => (<DoneCards
-              key={index}
-              image={recipe.image}
-              name={recipe.name}
-              nationality={recipe.nationality}
-              category={recipe.category}
-              type={recipe.type}
-              alcohol={recipe.alcoholicOrNot}
-              index={index}
-              doneDate={recipe.doneDate}
-              tags={recipe.tags}
-              id={recipe.id}
+              key={ index }
+              image={ recipe.image }
+              name={ recipe.name }
+              nationality={ recipe.nationality }
+              category={ recipe.category }
+              type={ recipe.type }
+              alcohol={ recipe.alcoholicOrNot }
+              index={ index }
+              doneDate={ recipe.doneDate }
+              tags={ recipe.tags }
+              id={ recipe.id }
             />))}
         </div>
         <Footer />

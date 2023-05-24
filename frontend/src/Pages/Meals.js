@@ -17,7 +17,9 @@ function Meals() {
   } = useContext(AppContext) || [];
   const [selectedFilterCategory, setSelectedFilterCategory] = useState([]);
   const [dataFoods, setDataFoods] = useState([]);
-  const filteredCategoryFood = useFetch(`${URL_BASE}/meals/category?q=${selectedFilterCategory[0]}`);
+  const filteredCategoryFood = useFetch(
+    `${URL_BASE}/meals/category?q=${selectedFilterCategory[0]}`,
+  );
 
   useEffect(() => {
     if (selectedFilterCategory.length > 0) {
@@ -45,19 +47,19 @@ function Meals() {
             if (index < five) {
               return (
                 <button
-                  className={`${strCategory} categoryButton`}
+                  className={ `${strCategory} categoryButton` }
                   type="button"
-                  key={`button ${index}`}
-                  name={strCategory}
-                  data-testid={`${strCategory}-category-filter`}
-                  onClick={({ target }) => {
+                  key={ `button ${index}` }
+                  name={ strCategory }
+                  data-testid={ `${strCategory}-category-filter` }
+                  onClick={ ({ target }) => {
                     if (target.closest('button').name === selectedFilterCategory[0]) {
                       return setSelectedFilterCategory([]);
                     }
                     setSelectedFilterCategory([target.closest('button').name]);
-                  }}
+                  } }
                 >
-                  <img key={`image ${index}`} src={Rectangle} alt={strCategory} />
+                  <img key={ `image ${index}` } src={ Rectangle } alt={ strCategory } />
                 </button>
               );
             } return undefined;
@@ -65,10 +67,10 @@ function Meals() {
         <button
           className="categoryButton all"
           type="button"
-          onClick={() => setSelectedFilterCategory([])}
+          onClick={ () => setSelectedFilterCategory([]) }
           data-testid="All-category-filter"
         >
-          <img src={Rectangle} alt="todos os pratos" />
+          <img src={ Rectangle } alt="todos os pratos" />
         </button>
       </nav>
       <section className="containerCardRecipes">
@@ -79,17 +81,17 @@ function Meals() {
               return (
                 <section className="cardsLink">
                   <Link
-                    key={`card ${key}`}
-                    data-testid={`${key}-recipe-card`}
-                    to={`/meals/${idMeal}`}
+                    key={ `card ${key}` }
+                    data-testid={ `${key}-recipe-card` }
+                    to={ `/meals/${idMeal}` }
                   >
                     <img
                       className="imgCardRecipe"
-                      src={strMealThumb}
-                      data-testid={`${key}-card-img`}
-                      alt={`receita do prato ${strMeal}`}
+                      src={ strMealThumb }
+                      data-testid={ `${key}-card-img` }
+                      alt={ `receita do prato ${strMeal}` }
                     />
-                    <p data-testid={`${key}-card-name`}>{strMeal}</p>
+                    <p data-testid={ `${key}-card-name` }>{strMeal}</p>
                   </Link>
                 </section>
               );

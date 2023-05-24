@@ -30,13 +30,13 @@ function Share(props) {
   return (
     <button
       type="button"
-      name={id}
-      value={type}
-      onClick={handleShare}
+      name={ id }
+      value={ type }
+      onClick={ handleShare }
     >
       <img
-        data-testid={testid}
-        src={shareIcon}
+        data-testid={ testid }
+        src={ shareIcon }
         alt="share"
       />
     </button>

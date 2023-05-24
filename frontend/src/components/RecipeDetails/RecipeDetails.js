@@ -47,11 +47,17 @@ function RecipesDetails({ history }) {
     const drinksOrMeals = async () => {
       try {
         if (history.location.pathname.includes('drink')) {
-          const responseMeals = await genericFetch(`${dataContext.URL_BASE}/meals`, 'drink');
+          const responseMeals = await genericFetch(
+            `${dataContext.URL_BASE}/meals`,
+            'drink',
+          );
 
           return setRecomended(responseMeals);
         }
-        const responseDrinks = await genericFetch(`${dataContext.URL_BASE}/drinks`, 'meal');
+        const responseDrinks = await genericFetch(
+          `${dataContext.URL_BASE}/drinks`,
+          'meal',
+        );
 
         return setRecomended(responseDrinks);
       } catch (error) {
@@ -108,19 +114,19 @@ function RecipesDetails({ history }) {
     <div className="containerRecipeDetails">
       <Header title="" />
       <CardDetails
-        selectedCategory={selectedCategory}
-        history={history}
+        selectedCategory={ selectedCategory }
+        history={ history }
       />
 
       <List
-        selectedCategory={selectedCategory}
-        history={history}
+        selectedCategory={ selectedCategory }
+        history={ history }
       />
 
       <RecomendedCard
-        recomended={recomended}
-        selectedCategory={selectedCategory}
-        history={history}
+        recomended={ recomended }
+        selectedCategory={ selectedCategory }
+        history={ history }
       />
       <div>
         {!isLoading && (
@@ -128,15 +134,15 @@ function RecipesDetails({ history }) {
             type="button"
             className="btnStartRecipe"
             data-testid="start-recipe-btn"
-            style={{ position: 'fixed', bottom: '0' }}
-            onClick={async () => {
+            style={ { position: 'fixed', bottom: '0' } }
+            onClick={ async () => {
               if (history.location.pathname.includes('meal')) {
                 await dataContext.setRecipesInProgress([selectedCategory]);
                 return history.push(`/meals/${selectedCategory.id}/in-progress`);
               }
               await dataContext.setRecipesInProgress([selectedCategory]);
               history.push(`/drinks/${selectedCategory.id}/in-progress`);
-            }}
+            } }
           >
             {!recipeInProgress ? 'Start Recipe' : 'Continue Recipe'}
           </button>

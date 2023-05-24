@@ -41,7 +41,7 @@ function CheckBoxIngredients(props) {
         ...inProgress.meals,
         [id]: inProgress.meals[id].filter((element) => (
           element !== ingredient
-        ))
+        )),
       },
     });
     const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
@@ -51,8 +51,8 @@ function CheckBoxIngredients(props) {
         ...storage.meals,
         [id]: storage.meals[id].filter((element) => (
           element !== ingredient
-        ))
-      }
+        )),
+      },
     };
     localStorage.setItem('inProgressRecipes', JSON.stringify(newStorage));
   };
@@ -78,7 +78,7 @@ function CheckBoxIngredients(props) {
         ...inProgress.drinks,
         [id]: inProgress.drinks[id].filter((element) => (
           element !== ingredient
-        ))
+        )),
       },
     });
     const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
@@ -88,8 +88,8 @@ function CheckBoxIngredients(props) {
         ...storage.drinks,
         [id]: storage.drinks[id].filter((element) => (
           element !== ingredient
-        ))
-      }
+        )),
+      },
     };
     localStorage.setItem('inProgressRecipes', JSON.stringify(newStorage));
   };
@@ -136,19 +136,19 @@ function CheckBoxIngredients(props) {
   return (
     <div>
       <label
-        htmlFor={`check-${ingredient}`}
-        key={index}
-        className={`ingredients-label-${done}`}
-        data-testid={`${index}-ingredient-step`}
+        htmlFor={ `check-${ingredient}` }
+        key={ index }
+        className={ `ingredients-label-${done}` }
+        data-testid={ `${index}-ingredient-step` }
       >
         {
           isLoading ? <p>loading</p> : (
             <input
-              id={`check-${ingredient}`}
+              id={ `check-${ingredient}` }
               type="checkbox"
               className="ingredients-checkbox"
-              onChange={handleChange}
-              checked={done}
+              onChange={ handleChange }
+              checked={ done }
               data-testid="ingredient-checkbox"
             />
           )
@@ -157,7 +157,7 @@ function CheckBoxIngredients(props) {
       </label>
     </div>
   );
-};
+}
 
 CheckBoxIngredients.propTypes = {
   ingredient: PropTypes.arrayOf(PropTypes.string),

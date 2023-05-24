@@ -26,19 +26,19 @@ function DoneCards(props) {
       <div className="uniqueCard">
         <Link
           className="cardInf"
-          to={type === 'meal' ? `/meals/${id}` : `/drinks/${id}`}
+          to={ type === 'meal' ? `/meals/${id}` : `/drinks/${id}` }
         >
           <img
             className="doneCard-image"
-            data-testid={`${index}-horizontal-image`}
-            src={image}
+            data-testid={ `${index}-horizontal-image` }
+            src={ image }
             alt="recipe-img"
           />
           <div className="cardInfos">
-            <h3 data-testid={`${index}-horizontal-name`}>{name}</h3>
+            <h3 data-testid={ `${index}-horizontal-name` }>{name}</h3>
 
             <span
-              data-testid={`${index}-horizontal-done-date`}
+              data-testid={ `${index}-horizontal-done-date` }
             >
               {doneDate}
             </span>
@@ -47,7 +47,7 @@ function DoneCards(props) {
                 ? (
                   <>
                     <h5
-                      data-testid={`${index}-horizontal-top-text`}
+                      data-testid={ `${index}-horizontal-top-text` }
                     >
                       {`${nationality} - ${category}`}
                     </h5>
@@ -55,8 +55,8 @@ function DoneCards(props) {
                       {
                         tags.map((tagName) => (
                           <p
-                            key={`${tagName}`}
-                            data-testid={`${index}-${tagName}-horizontal-tag`}
+                            key={ `${tagName}` }
+                            data-testid={ `${index}-${tagName}-horizontal-tag` }
                           >
                             {`${tagName}`}
                           </p>
@@ -65,16 +65,16 @@ function DoneCards(props) {
                     </div>
                   </>)
                 : (
-                  <h5 data-testid={`${index}-horizontal-top-text`}>{alcohol}</h5>)
+                  <h5 data-testid={ `${index}-horizontal-top-text` }>{alcohol}</h5>)
             }
           </div>
         </Link>
         <div className="btnShare">
           <Share
-            index={index}
-            type={type}
-            id={id}
-            testid={`${index}-horizontal-share-btn`}
+            index={ index }
+            type={ type }
+            id={ id }
+            testid={ `${index}-horizontal-share-btn` }
           />
         </div>
         <div>

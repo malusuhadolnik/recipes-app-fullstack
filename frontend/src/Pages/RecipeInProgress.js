@@ -11,7 +11,7 @@ function RecipeInProgress() {
   const [recipe, setRecipe] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [ingredients, setIngredients] = useState([]);
-  const { URL_BASE } = useContext(AppContext)
+  const { URL_BASE } = useContext(AppContext);
   const history = useHistory();
 
   const fetchRecipe = async (recipeId, recipeType) => {
@@ -74,10 +74,10 @@ function RecipeInProgress() {
   }, [recipe]);
 
   const renderComponent = () => (type === 'meals' ? (
-    <MealInProgress recipe={recipe} ingredients={ingredients} />
+    <MealInProgress recipe={ recipe } ingredients={ ingredients } />
   )
     : (
-      <DrinkInProgress recipe={recipe} ingredients={ingredients} />
+      <DrinkInProgress recipe={ recipe } ingredients={ ingredients } />
     ));
 
   return (

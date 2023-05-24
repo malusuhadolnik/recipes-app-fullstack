@@ -32,49 +32,49 @@ function Cards(props) {
     <div className="theCard">
       <Link
         className="cardImage"
-        to={type === 'meal' ? `/meals/${id}` : `/drinks/${id}`}
+        to={ type === 'meal' ? `/meals/${id}` : `/drinks/${id}` }
       >
         <img
           className="card-image"
-          data-testid={`${index}-horizontal-image`}
-          src={image}
-          alt={name}
+          data-testid={ `${index}-horizontal-image` }
+          src={ image }
+          alt={ name }
         />
       </Link>
       <div className="cardInformation">
         <Link
           className="cardName"
-          to={type === 'meal' ? `/meals/${id}` : `/drinks/${id}`}
+          to={ type === 'meal' ? `/meals/${id}` : `/drinks/${id}` }
         >
-          <h3 data-testid={`${index}-horizontal-name`}>{name}</h3>
+          <h3 data-testid={ `${index}-horizontal-name` }>{name}</h3>
         </Link>
         {
           type === 'meal'
             ? (
               <h4
-                data-testid={`${index}-horizontal-top-text`}
+                data-testid={ `${index}-horizontal-top-text` }
               >
                 {`${nationality} - ${category}`}
               </h4>)
             : (
-              <h4 data-testid={`${index}-horizontal-top-text`}>{alcohol}</h4>)
+              <h4 data-testid={ `${index}-horizontal-top-text` }>{alcohol}</h4>)
         }
       </div>
       <div className="buttons">
         <Share
-          index={index}
-          type={type}
-          id={id}
-          testid={`${index}-horizontal-share-btn`}
+          index={ index }
+          type={ type }
+          id={ id }
+          testid={ `${index}-horizontal-share-btn` }
         />
         <button
           type="button"
-          value={id}
-          onClick={handleFavorite}
+          value={ id }
+          onClick={ handleFavorite }
         >
           <img
-            data-testid={`${index}-horizontal-favorite-btn`}
-            src={blackHeartIcon}
+            data-testid={ `${index}-horizontal-favorite-btn` }
+            src={ blackHeartIcon }
             alt="unfavorite"
           />
         </button>
