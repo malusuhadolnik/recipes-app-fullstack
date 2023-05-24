@@ -88,7 +88,7 @@ function Login() {
             onClick={handleClick}
             className="submitBtn"
           >
-            Enter!
+            Enter
           </button>
         </form>
       </div>
