@@ -34,12 +34,12 @@ function Login() {
   const handleChange = ({ target }) => {
     const { name, value } = target;
     switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-      default:
-        setPassword(value);
-        break;
+    case 'email':
+      setEmail(value);
+      break;
+    default:
+      setPassword(value);
+      break;
     }
   };
 
@@ -67,8 +67,8 @@ function Login() {
             name="email"
             type="email"
             data-testid="email-input"
-            value={email}
-            onChange={handleChange}
+            value={ email }
+            onChange={ handleChange }
             placeholder="email"
             className="emailInput"
           />
@@ -76,16 +76,16 @@ function Login() {
             name="password"
             type="password"
             data-testid="password-input"
-            value={password}
-            onChange={handleChange}
+            value={ password }
+            onChange={ handleChange }
             placeholder="******"
             className="pwInput"
           />
           <button
             type="button"
             data-testid="login-submit-btn"
-            disabled={!valid}
-            onClick={handleClick}
+            disabled={ !valid }
+            onClick={ handleClick }
             className="submitBtn"
           >
             Enter

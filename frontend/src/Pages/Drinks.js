@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import useFetch from '../hooks/useFetch';
 import Header from '../components/Header';
-
 import '../styles/Drinks.css';
 import Rectangle from '../images/Rectangle.svg';
+import imageMap from '../utils/imageDrinksMap';
 
 function Drinks() {
   const {
@@ -13,11 +13,13 @@ function Drinks() {
     fetchDrinks: { data },
     filteredRecipes,
     setCurrentPage,
-    URL_BASE
+    URL_BASE,
   } = useContext(AppContext) || [];
   const [selectedFilterCategory, setSelectedFilterCategory] = useState([]);
   const [dataDrinks, setDataDrinks] = useState([]);
-  const filteredByCategory = useFetch(`${URL_BASE}/drinks/category?q=${selectedFilterCategory[0]}`);
+  const filteredByCategory = useFetch(
+    `${URL_BASE}/drinks/category?q=${selectedFilterCategory[0]}`,
+  );
   useEffect(() => {
     if (selectedFilterCategory.length > 0) {
       setDataDrinks(filteredByCategory.data);
@@ -36,25 +38,24 @@ function Drinks() {
       <Header title="Drinks" />
       <nav className="containerCardRecipesDrinks">
         {categorysDrinks
-          && categorysDrinks.map(({ strCategory }, index) => {
+          && categorysDrinks.map((strCategory, index) => {
             const five = 5;
             if (index < five) {
               return (
                 <button
-                  key={index}
+                  key={ index }
                   type="button"
-                  name={strCategory}
-                  className={`button${index} categoryButtonsDrink`}
-                  data-testid={`${strCategory}-category-filter`}
-                  onClick={({ target }) => {
+                  name={ strCategory }
+                  className={ `button${index} categoryButtonsDrink` }
+                  data-testid={ `${strCategory}-category-filter` }
+                  onClick={ ({ target }) => {
                     if (target.closest('button').name === selectedFilterCategory[0]) {
                       return setSelectedFilterCategory([]);
                     }
                     setSelectedFilterCategory([target.closest('button').name]);
-                  }}
+                  } }
                 >
-                  <img src={Rectangle} alt={strCategory} />
-                  {/* {strCategory} */}
+                  <img src={ imageMap[strCategory] } alt={ strCategory } />
                 </button>
               );
             }
@@ -62,11 +63,11 @@ function Drinks() {
           })}
         <button
           type="button"
-          onClick={() => setSelectedFilterCategory([])}
+          onClick={ () => setSelectedFilterCategory([]) }
           className="categoryButtonsDrink allDrinksRecipes"
           data-testid="All-category-filter"
         >
-          <img src={Rectangle} alt="todos os drinks" />
+          <img src={ Rectangle } alt="todos os drinks" />
         </button>
       </nav>
       <section className="navCategorysDrinks">
@@ -78,16 +79,16 @@ function Drinks() {
               return (
                 <section className="cardsLinkDrinks">
                   <Link
-                    key={key}
-                    data-testid={`${key}-recipe-card`}
-                    to={link}
+                    key={ key }
+                    data-testid={ `${key}-recipe-card` }
+                    to={ link }
                   >
-                    <p data-testid={`${key}-card-name`}>{drink.strDrink}</p>
+                    <p data-testid={ `${key}-card-name` }>{drink.strDrink}</p>
                     <img
                       className="imgCardRecipe"
-                      src={drink.strDrinkThumb}
-                      alt={`receita do drink ${drink.strDrink}`}
-                      data-testid={`${key}-card-img`}
+                      src={ drink.strDrinkThumb }
+                      alt={ `receita do drink ${drink.strDrink}` }
+                      data-testid={ `${key}-card-img` }
                     />
                   </Link>
                 </section>

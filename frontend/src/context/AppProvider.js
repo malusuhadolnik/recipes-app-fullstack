@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from './AppContext';
 import useFetch from '../hooks/useFetch';
-import mealsCategory from '../json/mealsCategories.json';
-import drinksCategory from '../json/drinksCategories.json';
+// import mealsCategory from '../json/mealsCategories.json';
+// import drinksCategory from '../json/drinksCategories.json';
 
 function AppProvider({ children }) {
   const URL_BASE = 'http://localhost:3001';
@@ -12,9 +12,9 @@ function AppProvider({ children }) {
   const [recipes, setRecipes] = useState([]);
   const [recipesInProgress, setRecipesInProgress] = useState({});
   const fetchDrinks = useFetch(`${URL_BASE}/drinks`);
-  const fetchDrinksCategory = { data: drinksCategory };
+  const fetchDrinksCategory = useFetch(`${URL_BASE}/drinks/categories`);
   const fetchMeals = useFetch(`${URL_BASE}/meals`);
-  const fetchFoodsCategorys = { data: mealsCategory };
+  const fetchFoodsCategorys = useFetch(`${URL_BASE}/meals/categories`);
   const [faveRecipes, setFaveRecipes] = useState([]);
   const [wasShared, setWasShared] = useState(false);
   const [inProgress, setInProgress] = useState({
@@ -75,7 +75,7 @@ function AppProvider({ children }) {
   ]);
 
   return (
-    <AppContext.Provider value={values}>
+    <AppContext.Provider value={ values }>
       {children}
     </AppContext.Provider>
   );

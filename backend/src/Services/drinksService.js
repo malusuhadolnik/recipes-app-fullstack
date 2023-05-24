@@ -52,11 +52,10 @@ const getById = async (id) => {
   return result;
 };
 
-// deve retornar resultado como no endpoint:https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
 const listAllCategories = async () => {
   try {
-    const result = await DrinksModel.find({}, { _id: false, strCategory: true });
-    console.log(result);
+    const result = await DrinksModel.find({}, { _id: false, strCategory: true }).distinct('strCategory');
+
     return result;
   } catch (error) {
     console.log(error.message);
@@ -64,17 +63,22 @@ const listAllCategories = async () => {
 }
 
 const getDrinkByIngredient = async (q) => {
-  console.log(q);
   try {
-    const regex = new RegExp("\\b" + q + "s?\\b", "i");
-    
-    const result = await DrinksModel.find({ strInstructions: { $regex: regex } });
-    
+    const mongoQuery = [];
+
+    for (let i = 1; i <= 20; i++) {
+      const query = {
+        [`strIngredient${i}`]: { $regex: new RegExp(`^.*${q}.*$`), $options: "i" }
+      };
+      mongoQuery.push(query);
+    }
+
+    const result = await DrinksModel.find({ $or: mongoQuery });
     return result;
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
 module.exports = {
   getData,
