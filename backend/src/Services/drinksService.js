@@ -66,20 +66,20 @@ const listAllCategories = async () => {
 const getDrinkByIngredient = async (q) => {
   try {
     const mongoQuery = [];
-    
+
     for (let i = 1; i <= 20; i++) {
       const query = {
         [`strIngredient${i}`]: { $regex: new RegExp(`^.*${q}.*$`), $options: "i" }
       };
-      mongoQuery.push(query); 
+      mongoQuery.push(query);
     }
-    
-    const result = await DrinksModel.find({$or:  mongoQuery });
+
+    const result = await DrinksModel.find({ $or: mongoQuery });
     return result;
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
 module.exports = {
   getData,

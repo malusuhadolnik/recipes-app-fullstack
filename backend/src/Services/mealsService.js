@@ -81,17 +81,22 @@ const listAllAreas = async () => {
 }
 
 const getRecipeByIngredient = async (q) => {
-  console.log(q);
   try {
-    const regex = new RegExp("\\b" + q + "s?\\b", "i");
-    
-    const result = await MealsModel.find({ strInstructions: { $regex: regex } });
-    
+    const mongoQuery = [];
+
+    for (let i = 1; i <= 20; i++) {
+      const query = {
+        [`strIngredient${i}`]: { $regex: new RegExp(`^.*${q}.*$`), $options: "i" }
+      };
+      mongoQuery.push(query);
+    }
+
+    const result = await MealsModel.find({ $or: mongoQuery });
     return result;
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
 module.exports = {
   getData,
