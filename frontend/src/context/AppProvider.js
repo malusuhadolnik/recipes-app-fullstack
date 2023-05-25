@@ -6,7 +6,7 @@ import useFetch from '../hooks/useFetch';
 // import drinksCategory from '../json/drinksCategories.json';
 
 function AppProvider({ children }) {
-  const URL_BASE = 'http://localhost:3001';
+  const URL_BASE = 'https://recipes-api.up.railway.app';
   const [user, setUser] = useState({});
   const [isActive, setIsActive] = useState(false);
   const [recipes, setRecipes] = useState([]);
